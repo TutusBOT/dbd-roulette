@@ -1,12 +1,18 @@
-import Button from "./components/Button";
 import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Realms from "./pages/Realms";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
 	return (
-		<>
-			<Button body="SURVIVOR" handleClick={() => console.log("d")} />;
-			<Button body="KILLER" handleClick={() => console.log("d")} />;
-		</>
+		<Router>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/realms" element={<Realms />} />
+				<Route path="*" element={<ErrorPage />} />
+			</Routes>
+		</Router>
 	);
 }
 
