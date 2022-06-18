@@ -1,0 +1,11 @@
+.animation-realm > ul {
+	transition: transform 300ms ease-in-out;
+}
+
+.animation-realm > ul {
+	transform: translateY(100%);
+}
+
+.animation-realm:hover > ul {
+	transform: translateY(0);
+}
