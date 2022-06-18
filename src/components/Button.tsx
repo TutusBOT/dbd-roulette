@@ -8,7 +8,7 @@ type Button = {
 function Button({ body, handleClick }: Button) {
 	return (
 		<button
-			className="text-white text-2xl border-white border-2"
+			className="p-2 text-white text-2xl border-white border-2"
 			onClick={handleClick}
 		>
 			{body}
