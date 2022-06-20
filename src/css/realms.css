@@ -1,11 +1,14 @@
-.animation-realm > ul {
-	transition: transform 300ms ease-in-out;
+.realms-animation {
+	height: 4.5rem;
+	overflow: hidden;
 }
 
-.animation-realm > ul {
-	transform: translateY(100%);
+.realms-animation > ul {
+	font-size: 4rem;
+	transform: translateY(calc(-100% + 4.5rem));
+	transition: transform 2000ms ease-in-out;
 }
 
-.animation-realm:hover > ul {
-	transform: translateY(0);
+.realms-animation:hover > ul {
+	transform: translateY(0%);
 }

@@ -1,20 +1,31 @@
+import { useDispatch } from "react-redux";
+import { realmsActions } from "../redux/realms/realmsSlice";
+
 type Realm = {
-	background: string;
+	id: number;
 	name: string;
-	maps: string[];
+	type: string;
+	enabled: boolean;
 };
 
-function Realm({ background, name, maps }: Realm) {
+function Realm({ id, name, type, enabled }: Realm) {
+	const dispatch = useDispatch();
+	function handleClick() {
+		console.log(enabled);
+
+		dispatch(realmsActions.toggle(id));
+	}
+
 	return (
-		<li
-			className={`animation-realm w-[380px] h-[256px] ${background} bg-no-repeat bg-center  overflow-hidden text-center flex flex-col justify-between pt-4`}
-		>
-			<p className="bg-black bg-opacity-70">{name}</p>
-			<ul>
-				{maps.map((map) => {
-					return <li key={map}>{map}</li>;
-				})}
-			</ul>
+		<li className="relative" onClick={handleClick}>
+			<img
+				className={enabled ? "border-white border-2" : ""}
+				src={`./src/img/realms/${id}.webp`}
+				alt={name}
+			/>
+			<h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  w-full max-w-[370px] text-2xl text-center bg-neutral-900 bg-opacity-70">
+				{JSON.stringify(enabled)}
+			</h3>
 		</li>
 	);
 }
