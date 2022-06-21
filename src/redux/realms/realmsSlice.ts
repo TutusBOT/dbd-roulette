@@ -5,8 +5,8 @@ export type RealmsState = {
 	name: string;
 	enabled: boolean;
 	type: string;
-}[];
-const initialState: RealmsState = [
+};
+const initialState: RealmsState[] = [
 	{ id: 1, name: "Coal Tower", enabled: true, type: "The MacMillan Estate" },
 	{
 		id: 2,
@@ -131,7 +131,7 @@ const slice = createSlice({
 	initialState,
 	reducers: {
 		disable: (state, { payload }: PayloadAction<string>) => {
-			state = state.map((realm) => {
+			return state.map((realm) => {
 				if (realm.name === payload) {
 					return { ...realm, enabled: false };
 				}
@@ -139,7 +139,7 @@ const slice = createSlice({
 			});
 		},
 		enable: (state, { payload }: PayloadAction<string>) => {
-			state = state.map((realm) => {
+			return state.map((realm) => {
 				if (realm.name === payload) {
 					return { ...realm, enabled: true };
 				}
@@ -147,20 +147,20 @@ const slice = createSlice({
 			});
 		},
 		disableAll: (state) => {
-			state = state.map((realm) => {
+			return state.map((realm) => {
 				return { ...realm, enabled: false };
 			});
 		},
 		enableAll: (state) => {
-			state = state.map((realm) => {
+			return state.map((realm) => {
 				return { ...realm, enabled: true };
 			});
 		},
-		set: (state, { payload }: PayloadAction<RealmsState>) => {
+		set: (state, { payload }: PayloadAction<RealmsState[]>) => {
 			return payload;
 		},
 		disableByType: (state, { payload }: PayloadAction<string>) => {
-			state = state.map((realm) => {
+			return state.map((realm) => {
 				if (realm.name === payload) {
 					return { ...realm, enabled: false };
 				}
@@ -168,7 +168,7 @@ const slice = createSlice({
 			});
 		},
 		enableByType: (state, { payload }: PayloadAction<string>) => {
-			state = state.map((realm) => {
+			return state.map((realm) => {
 				if (realm.name === payload) {
 					return { ...realm, enabled: true };
 				}
@@ -194,7 +194,7 @@ export const realmsActions = {
 	enableAll: createAction("realms/enableAll"),
 	disableByType: createAction<string>("realms/disableByType"),
 	enableByType: createAction<string>("realms/enableByType"),
-	set: createAction<RealmsState>("realms/set"),
+	set: createAction<RealmsState[]>("realms/set"),
 	toggle: createAction<number>("realms/toggle"),
 };
 
