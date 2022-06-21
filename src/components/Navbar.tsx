@@ -1,10 +1,15 @@
-import Anchor from "./Anchor";
+import AnchorUnderlined from "./AnchorUnderlined";
 
-function Navbar() {
+type Navbar = {
+	active: string;
+};
+
+function Navbar({ active }: Navbar) {
 	return (
 		<header>
-			<nav className="text-white">
-				<Anchor link="/realms" body={"Realms"} />
+			<nav className="fixed w-full flex justify-center gap-8 py-4 text-white text-2xl bg-black z-20">
+				<AnchorUnderlined body="HOME" link="/" />
+				<AnchorUnderlined body="REALMS" link="/realms" />
 			</nav>
 		</header>
 	);
