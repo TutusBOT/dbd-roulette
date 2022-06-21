@@ -1,0 +1,8 @@
+.fade {
+	transition: opacity 800ms ease-in 75ms;
+	opacity: 0;
+}
+
+.fade[data-fade="true"] {
+	opacity: 1;
+}
