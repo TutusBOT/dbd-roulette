@@ -7,7 +7,11 @@ module.exports = {
 			autohaven: "url('../src/img/realms/autohaven.webp')",
 			coldwind: "url('../src/img/realms/coldwind.webp')",
 		},
-		extend: {},
+		extend: {
+			colors: {
+				red: "#CC0000",
+			},
+		},
 	},
 	plugins: [],
 };
