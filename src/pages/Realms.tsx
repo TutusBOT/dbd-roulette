@@ -3,13 +3,13 @@ import Button from "../components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "../redux/rootReducer";
 import { useEffect, useState } from "react";
-import "../css/slot-machine-animation.css";
 import "../css/fade-animation.css";
 import Realm from "../components/Realm";
 import { realmsActions, RealmsState } from "../redux/realms/realmsSlice";
 import Anchor from "../components/Anchor";
 import SlotMachine from "../components/SlotMachine";
 import ConfigurationWrapper from "../components/ConfigurationWrapper";
+import ConfigurationButtons from "../components/ConfigurationButtons";
 
 function Realms() {
 	const realms = useSelector((state: AppState) => state.realms);
@@ -113,21 +113,15 @@ function Realms() {
 					</div>
 				</section>
 				<section id="configuration">
-					<div className="sticky top-0 flex flex-wrap justify-center gap-2 sm:gap-4 w-full py-4 z-20 bg-black">
-						<Button
-							body="DISABLE ALL"
-							handleClick={() => {
-								dispatch(realmsActions.disableAll());
-							}}
-						/>
-						<Button
-							body="ENABLE ALL"
-							handleClick={() => {
-								dispatch(realmsActions.enableAll());
-							}}
-						/>
-						<Anchor body="roulette" link="#roulette" />
-					</div>
+					<ConfigurationButtons
+						selectAction={
+							realms.reduce((prev, curr) => {
+								return prev && curr.enabled;
+							}, true)
+								? () => dispatch(realmsActions.disableAll())
+								: () => dispatch(realmsActions.enableAll())
+						}
+					/>
 					<ConfigurationWrapper>
 						{realms.map((realm) => {
 							return (
