@@ -8,8 +8,21 @@ function Navbar({ active }: Navbar) {
 	return (
 		<header>
 			<nav className="fixed w-full flex justify-center gap-8 py-4 text-white text-2xl bg-black z-20">
-				<AnchorUnderlined body="HOME" link="/" />
-				<AnchorUnderlined body="REALMS" link="/realms" />
+				<AnchorUnderlined
+					body="HOME"
+					link="/"
+					active={active === "home" ? true : false}
+				/>
+				<AnchorUnderlined
+					body="KILLERS"
+					link="/killers"
+					active={active === "killers" ? true : false}
+				/>
+				<AnchorUnderlined
+					body="REALMS"
+					link="/realms"
+					active={active === "realms" ? true : false}
+				/>
 			</nav>
 		</header>
 	);
