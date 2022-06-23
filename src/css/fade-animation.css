@@ -1,5 +1,5 @@
 .fade {
-	transition: opacity 800ms ease-in 75ms;
+	transition: opacity 800ms ease-in 100ms;
 	opacity: 0;
 }
 
