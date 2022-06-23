@@ -1,7 +1,7 @@
 import AnchorUnderlined from "./AnchorUnderlined";
 
 type Navbar = {
-	active: string;
+	active: "home" | "killers" | "realms" | "perks";
 };
 
 function Navbar({ active }: Navbar) {
@@ -12,6 +12,11 @@ function Navbar({ active }: Navbar) {
 					body="HOME"
 					link="/"
 					active={active === "home" ? true : false}
+				/>
+				<AnchorUnderlined
+					body="PERKS"
+					link="/perks"
+					active={active === "perks" ? true : false}
 				/>
 				<AnchorUnderlined
 					body="KILLERS"

@@ -13,7 +13,7 @@ function Killer({ id, enabled, alias }: Killer) {
 		dispatch(killersActions.toggle(id));
 	}
 	return (
-		<li>
+		<li className="cursor-pointer">
 			<img
 				className={`${
 					enabled ? "border-white" : "border-transparent"
