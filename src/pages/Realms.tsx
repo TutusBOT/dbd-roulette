@@ -8,6 +8,8 @@ import "../css/fade-animation.css";
 import Realm from "../components/Realm";
 import { realmsActions, RealmsState } from "../redux/realms/realmsSlice";
 import Anchor from "../components/Anchor";
+import SlotMachine from "../components/SlotMachine";
+import ConfigurationWrapper from "../components/ConfigurationWrapper";
 
 function Realms() {
 	const realms = useSelector((state: AppState) => state.realms);
@@ -35,7 +37,6 @@ function Realms() {
 			setRandomRealm(randomRealmArray[0]);
 		}
 	}, [isChosen]);
-	console.log(randomRealmArray.length);
 
 	function chooseRandomRealm() {
 		const enabledArray = realms.filter((realm) => realm.enabled);
@@ -55,6 +56,7 @@ function Realms() {
 			setIsChosen(false);
 		}, animationTime);
 	}
+
 	return (
 		<>
 			<span id="roulette"></span>
@@ -62,14 +64,11 @@ function Realms() {
 			<main>
 				<section className="w-full h-screen flex flex-col items-center">
 					<div className=" grid place-items-center h-3/4 overflow-hidden">
-						<div
+						{/* <div
 							className="slot-machine-animation text-center"
 							data-chosen={isChosen}
 						>
 							<ul className="pt-0">
-								{randomRealmArray.length ? null : (
-									<li className="text-white">MAP</li>
-								)}
 								{randomRealmArray.map((realm, index) => {
 									return (
 										<li className="text-white" key={index}>
@@ -78,18 +77,38 @@ function Realms() {
 									);
 								})}
 							</ul>
-						</div>
-						{randomRealm ? (
-							<img
-								className="fade absolute top-1/2 left-0 -translate-y-1/2 -z-10"
-								data-fade={!isChosen ? true : false}
-								src={`./src/img/realms/${randomRealm.id}B.webp`}
-								alt={randomRealm.name}
-							/>
-						) : null}
+						</div> */}
+						<SlotMachine
+							height={72}
+							isChosen={isChosen}
+							fontSize={4}
+							offset={1.5}
+						>
+							{randomRealmArray.map((realm, index) => {
+								return (
+									<li className="text-white text-center" key={index}>
+										{realm.name}
+									</li>
+								);
+							})}
+						</SlotMachine>
+						<img
+							className="fade absolute top-16 lg:top-1/2 left-0 lg:-translate-y-1/2 -z-10"
+							data-fade={!isChosen ? true : false}
+							src={
+								randomRealm
+									? `./src/img/realms/${randomRealm.id}B.webp`
+									: "./src/img/realms/0.webp"
+							}
+							alt={randomRealm ? randomRealm.name : "background"}
+						/>
 					</div>
-					<div className="flex flex-wrap justify-center gap-2 sm:gap-4 w-full">
-						<Button body="GENERATE" handleClick={handleClickRandom} />
+					<div className="sm:mt-8 flex flex-wrap justify-center gap-2 sm:gap-4 w-full">
+						<Button
+							body="GENERATE"
+							handleClick={handleClickRandom}
+							isDisabled={isChosen}
+						/>
 						<Anchor body={"configuration"} link={"#configuration"} />
 					</div>
 				</section>
@@ -109,7 +128,7 @@ function Realms() {
 						/>
 						<Anchor body="roulette" link="#roulette" />
 					</div>
-					<ul className=" mt-8  w-full flex flex-wrap gap-4 justify-center items-center text-white">
+					<ConfigurationWrapper>
 						{realms.map((realm) => {
 							return (
 								<Realm
@@ -121,7 +140,7 @@ function Realms() {
 								/>
 							);
 						})}
-					</ul>
+					</ConfigurationWrapper>
 				</section>
 			</main>
 		</>
