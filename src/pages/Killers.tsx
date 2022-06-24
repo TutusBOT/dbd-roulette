@@ -114,7 +114,7 @@ function Killers() {
 							handleClick={handleClickRandom}
 							isDisabled={isChosen || !isAnimImageFinished}
 						/>
-						<Anchor body="CONFIGURATION" link="#configuration" />
+						<Anchor body="CONFIGURATION" link="configuration" />
 					</div>
 				</section>
 				<section id="configuration">

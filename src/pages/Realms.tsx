@@ -109,7 +109,7 @@ function Realms() {
 							handleClick={handleClickRandom}
 							isDisabled={isChosen}
 						/>
-						<Anchor body={"configuration"} link={"#configuration"} />
+						<Anchor body={"configuration"} link={"configuration"} />
 					</div>
 				</section>
 				<section id="configuration">
