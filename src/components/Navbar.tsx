@@ -15,17 +15,17 @@ function Navbar({ active }: Navbar) {
 				/>
 				<AnchorUnderlined
 					body="PERKS"
-					link="/perks"
+					link="/#/perks"
 					active={active === "perks" ? true : false}
 				/>
 				<AnchorUnderlined
 					body="KILLERS"
-					link="/killers"
+					link="/#/killers"
 					active={active === "killers" ? true : false}
 				/>
 				<AnchorUnderlined
 					body="REALMS"
-					link="/realms"
+					link="/#/realms"
 					active={active === "realms" ? true : false}
 				/>
 			</nav>
