@@ -19,7 +19,7 @@ function Killer({ id, enabled, alias }: Killer) {
 					enabled ? "border-white" : "border-transparent"
 				} border-2`}
 				onClick={handleClick}
-				src={`./src/img/killers/${id}.webp`}
+				src={`./assets/killers/${id}.webp`}
 				alt={alias}
 			/>
 		</li>

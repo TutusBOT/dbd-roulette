@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import SlotMachine from "../components/SlotMachine";
 import { AppState } from "../redux/rootReducer";
-import { useEffect, useState, useRef, ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { killersActions, KillersState } from "../redux/killers/killersSlice";
 import Killer from "../components/Killer";
 import ConfigurationWrapper from "../components/ConfigurationWrapper";
@@ -79,7 +79,7 @@ function Killers() {
 								return (
 									<li key={index}>
 										<img
-											src={`./src/img/killers/${killer.id}.webp`}
+											src={`./assets/killers/${killer.id}.webp`}
 											alt={killer.name}
 										/>
 									</li>
@@ -103,8 +103,8 @@ function Killers() {
 						data-fade={!isChosen ? true : false}
 						src={
 							randomKiller
-								? `./src/img/killers/background/${randomKiller.id}.webp`
-								: "./src/img/killers/background/1.webp"
+								? `./assets/killers/background/${randomKiller.id}.webp`
+								: "./assets/killers/background/1.webp"
 						}
 						alt={randomKiller ? randomKiller.name : "killer background"}
 					/>

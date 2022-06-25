@@ -97,8 +97,8 @@ function Realms() {
 							data-fade={!isChosen ? true : false}
 							src={
 								randomRealm
-									? `./src/img/realms/${randomRealm.id}B.webp`
-									: "./src/img/realms/0.webp"
+									? `./assets/realms/${randomRealm.id}B.webp`
+									: "./assets/realms/0.webp"
 							}
 							alt={randomRealm ? randomRealm.name : "background"}
 						/>
