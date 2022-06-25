@@ -637,7 +637,7 @@ const slice = createSlice({
 	},
 });
 
-export const killersActions = {
+export const perksActions = {
 	disable: createAction<string>("killers/disable"),
 	enable: createAction<string>("killers/enable"),
 	disableAll: createAction("killers/disableAll"),
