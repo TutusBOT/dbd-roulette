@@ -17,7 +17,7 @@ function Perk({ id, enabled, name }: Perk) {
 			<img
 				className={`${
 					enabled ? "border-white" : "border-transparent"
-				} border-2`}
+				} border-2 max-w-[128px]`}
 				onClick={handleClick}
 				src={`./assets/perks/${id}.webp`}
 				alt={name}
