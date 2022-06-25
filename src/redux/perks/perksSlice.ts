@@ -638,12 +638,12 @@ const slice = createSlice({
 });
 
 export const perksActions = {
-	disable: createAction<string>("killers/disable"),
-	enable: createAction<string>("killers/enable"),
-	disableAll: createAction("killers/disableAll"),
-	enableAll: createAction("killers/enableAll"),
-	set: createAction<PerksState[]>("killers/set"),
-	toggle: createAction<number>("killers/toggle"),
+	disable: createAction<string>("perks/disable"),
+	enable: createAction<string>("perks/enable"),
+	disableAll: createAction("perks/disableAll"),
+	enableAll: createAction("perks/enableAll"),
+	set: createAction<PerksState[]>("perks/set"),
+	toggle: createAction<number>("perks/toggle"),
 };
 
 export default slice.reducer;
