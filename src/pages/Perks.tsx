@@ -7,7 +7,7 @@ import ConfigurationWrapper from "../components/ConfigurationWrapper";
 import Navbar from "../components/Navbar";
 import Perk from "../components/Perk";
 import SlotMachine from "../components/SlotMachine";
-import { perksActions, PerksState } from "../redux/perks/perksSlice";
+import { perksActions, PerksState, Role } from "../redux/perks/perksSlice";
 import { AppState } from "../redux/rootReducer";
 
 function Perks() {
@@ -19,6 +19,13 @@ function Perks() {
 	const [randomKiller, setRandomKiller] = useState<PerksState>();
 	const animationTime = 2100;
 	const [isAnimImageFinished, setIsAnimImageFinished] = useState(true);
+	const [role, setRole] = useState<{
+		role: Role;
+		isChosen: boolean;
+	}>({
+		role: "killer",
+		isChosen: false,
+	});
 
 	useEffect(() => {
 		const perksConfig = localStorage.getItem(PERKS_KEY);
@@ -75,6 +82,22 @@ function Perks() {
 		<>
 			<Navbar active="perks" />
 			<main>
+				{role.isChosen ? null : (
+					<div className="flex flex-wrap gap-4 absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2">
+						<Button
+							body="SURVIVOR"
+							handleClick={() => {
+								setRole({ role: "survivor", isChosen: true });
+							}}
+						/>
+						<Button
+							body="KILLER"
+							handleClick={() => {
+								setRole({ role: "killer", isChosen: true });
+							}}
+						/>
+					</div>
+				)}
 				<section className="w-full h-screen flex flex-col items-center">
 					<div
 						className={`flex flex-wrap h-3/4 overflow-hidden ${
