@@ -1,9 +1,11 @@
 import { createSlice, createAction, PayloadAction } from "@reduxjs/toolkit";
 
+export type Role = "survivor" | "killer";
+
 export type PerksState = {
 	id: number;
 	name: string;
-	role: "survivor" | "killer";
+	role: Role;
 	enabled: boolean;
 };
 
